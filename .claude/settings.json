@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node _analyze.mjs \"C:\\\\Users\\\\Shubham\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Shubham-Desktop-Execellent\\\\706f7c66-3001-4cab-9f27-843480d48dd7\\\\scratchpad\")"
+    ]
+  }
+}

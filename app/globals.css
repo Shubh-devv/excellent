@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f5f0;
+  --foreground: #14130f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ink: #f7f5f0;
+  --color-ink-soft: #eeeadf;
+  --color-ink-line: #e2ddd0;
+
+  --color-red: #e5171f;
+  --color-red-light: #ff4b4b;
+  --color-red-dim: #9c0d13;
+
+  --color-bone: #14130f;
+  --color-mute: #736e60;
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-label: var(--font-label);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-red);
+  color: white;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.font-label {
+  font-family: var(--font-label), monospace;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px rgba(20, 19, 15, 0.32);
+  color: transparent;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee 70s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 22s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
