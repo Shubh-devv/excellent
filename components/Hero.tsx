@@ -23,8 +23,8 @@ function SocialBadge({ s }: { s: (typeof social)[number] }) {
 
 export default function Hero() {
   return (
-    <section className="h-[calc(100vh-0.5rem)] px-2 pb-2">
-      <div className="relative mx-auto flex h-full max-w-7xl flex-col overflow-hidden rounded-b-[2rem] bg-[#14130f] text-white md:rounded-b-[2.5rem]">
+    <section className="h-[calc(100vh-1.5rem)] px-3 pb-3 pt-3">
+      <div className="relative mx-auto flex h-full max-w-7xl flex-col overflow-hidden rounded-[2rem] bg-[#14130f] text-white md:rounded-[2.5rem]">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{

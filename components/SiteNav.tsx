@@ -59,11 +59,10 @@ function HamburgerIcon({ open }: { open: boolean }) {
 
 export default function SiteNav() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
 
   const row = (
-    <div className="flex items-center justify-between gap-2 px-4 py-3 md:px-6">
+    <div className="flex items-center justify-between gap-2 rounded-full bg-bone py-2 pl-5 pr-2 shadow-lg shadow-black/15 md:pl-6">
       <Link href="/" onClick={() => setOpen(false)} className="shrink-0">
         <Logo markSize={30} className="[&_.font-display]:text-lg" />
       </Link>
@@ -114,17 +113,9 @@ export default function SiteNav() {
 
   return (
     <>
-      {isHome ? (
-        <header className="sticky top-0 z-50 px-2">
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-t-[2rem] bg-bone md:rounded-t-[2.5rem]">
-            {row}
-          </div>
-        </header>
-      ) : (
-        <header className="sticky top-0 z-50 bg-bone">
-          <div className="mx-auto max-w-7xl">{row}</div>
-        </header>
-      )}
+      <header className="sticky top-0 z-50 px-3 md:px-6">
+        <div className="mx-auto max-w-7xl">{row}</div>
+      </header>
 
       <AnimatePresence>
         {open && [
