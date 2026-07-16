@@ -57,8 +57,9 @@ function HamburgerIcon({ open }: { open: boolean }) {
   );
 }
 
-export default function SiteNav({ embedded = false }: { embedded?: boolean }) {
+export default function SiteNav() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
 
   const row = (
@@ -113,8 +114,12 @@ export default function SiteNav({ embedded = false }: { embedded?: boolean }) {
 
   return (
     <>
-      {embedded ? (
-        <div className="relative z-20">{row}</div>
+      {isHome ? (
+        <header className="sticky top-0 z-50 px-2">
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-t-[2rem] bg-bone md:rounded-t-[2.5rem]">
+            {row}
+          </div>
+        </header>
       ) : (
         <header className="sticky top-0 z-50 bg-bone">
           <div className="mx-auto max-w-7xl">{row}</div>
