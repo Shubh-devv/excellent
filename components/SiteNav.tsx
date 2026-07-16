@@ -4,11 +4,39 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Phone } from "lucide-react";
+import { ArrowUpRight, Phone } from "lucide-react";
 import clsx from "clsx";
 import Logo from "./Logo";
 import RollText from "./RollText";
-import { nav, social, phone } from "@/lib/data";
+import { nav, phone } from "@/lib/data";
+
+const panelVariants = {
+  hidden: { opacity: 0, scale: 0.8, y: -24 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 340,
+      damping: 26,
+      when: "beforeChildren" as const,
+      staggerChildren: 0.05,
+      delayChildren: 0.08,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.85,
+    y: -16,
+    transition: { duration: 0.2, ease: [0.65, 0, 0.35, 1] as const },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: 24 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeOut" as const } },
+};
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
@@ -29,17 +57,17 @@ function HamburgerIcon({ open }: { open: boolean }) {
   );
 }
 
-export default function SiteNav() {
+export default function SiteNav({ embedded = false }: { embedded?: boolean }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const row = (
-    <div className="flex items-center justify-between gap-2 rounded-full bg-bone py-2 pl-5 pr-2 shadow-lg shadow-black/15 md:pl-6">
+    <div className="flex items-center justify-between gap-2 px-4 py-3 md:px-6">
       <Link href="/" onClick={() => setOpen(false)} className="shrink-0">
         <Logo markSize={30} className="[&_.font-display]:text-lg" />
       </Link>
 
-      <nav className="hidden md:flex items-center gap-1 font-label text-xs tracking-[0.1em] uppercase">
+      <nav className="hidden md:flex items-center gap-3 font-label text-xs tracking-[0.1em] uppercase">
         {nav.map((item) => {
           const active = pathname === item.href;
           return (
@@ -47,10 +75,10 @@ export default function SiteNav() {
               key={item.href}
               href={item.href}
               className={clsx(
-                "group rounded-full px-5 py-2.5 transition-colors",
+                "group rounded-full border px-5 py-2.5 transition-colors",
                 active
-                  ? "bg-red text-white"
-                  : "text-white/70 hover:bg-white/10 hover:text-white"
+                  ? "border-white bg-white/10 text-white"
+                  : "border-white/15 text-white/70 hover:border-white/40 hover:bg-white/10 hover:text-white"
               )}
             >
               <RollText text={item.label} accent={!active} />
@@ -85,82 +113,67 @@ export default function SiteNav() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 px-3 pt-3 md:px-6 md:pt-4">
-        <div className="mx-auto max-w-7xl">{row}</div>
-      </header>
+      {embedded ? (
+        <div className="relative z-20">{row}</div>
+      ) : (
+        <header className="sticky top-0 z-50 bg-bone">
+          <div className="mx-auto max-w-7xl">{row}</div>
+        </header>
+      )}
 
       <AnimatePresence>
-        {open && (
+        {open && [
+          <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 z-30 bg-black/50"
+          />,
           <motion.div
             key="panel"
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.4, ease: [0.65, 0, 0.35, 1] }}
-            className="fixed inset-0 z-60 flex flex-col bg-bone text-white"
+            variants={panelVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="fixed inset-x-4 top-20 z-40 mx-auto flex max-h-[75vh] max-w-2xl origin-top-right flex-col overflow-hidden rounded-[2rem] bg-white text-bone shadow-2xl sm:inset-x-6 md:inset-x-auto md:right-6 md:top-24 md:w-[420px]"
           >
-            <div className="flex items-center justify-between px-3 pt-3 md:px-6 md:pt-4">
-              <Link href="/" onClick={() => setOpen(false)} className="shrink-0">
-                <Logo markSize={30} className="[&_.font-display]:text-lg" />
-              </Link>
-              <button
-                onClick={() => setOpen(false)}
-                aria-label="Close menu"
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red transition-colors"
-              >
-                <HamburgerIcon open />
-              </button>
-            </div>
-
-            <div className="flex flex-1 flex-col justify-center gap-1 px-8 md:px-20">
+            <div className="flex-1 overflow-y-auto px-8 py-6">
               {nav.map((item, i) => {
                 const active = pathname === item.href;
                 return (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 * i, duration: 0.35, ease: "easeOut" }}
-                    className="flex items-center gap-4 border-b border-white/10 py-3"
-                  >
-                    <span className="font-label text-xs text-white/40">
-                      ({String(i + 1).padStart(2, "0")})
-                    </span>
+                  <motion.div key={item.href} variants={itemVariants}>
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
                       className={clsx(
-                        "flex flex-1 items-center font-display text-3xl uppercase leading-tight transition-colors sm:text-4xl md:text-5xl",
-                        active ? "text-red" : "text-white hover:text-red"
+                        "flex items-start justify-between gap-4 border-b border-black/10 py-4 font-display text-4xl uppercase leading-none transition-colors last:border-b-0",
+                        active ? "text-red" : "text-bone hover:text-red"
                       )}
                     >
                       {item.label}
+                      <span className="font-label text-sm text-bone/40">
+                        ({String(i + 1).padStart(2, "0")})
+                      </span>
                     </Link>
                   </motion.div>
                 );
               })}
             </div>
 
-            <div className="flex flex-col gap-3 border-t border-white/10 px-8 py-6 font-label text-xs uppercase tracking-[0.15em] text-white/60 sm:flex-row sm:items-center sm:justify-between md:px-20">
-              <a href={phone.href} className="hover:text-red transition-colors">
-                {phone.display}
-              </a>
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
-                {social.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-red transition-colors"
-                  >
-                    {s.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
+            <motion.div variants={itemVariants} className="border-t border-black/10 p-4">
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-full bg-red px-6 py-4 font-label text-xs uppercase tracking-[0.15em] text-white transition-colors hover:bg-red-light"
+              >
+                Get In Touch <ArrowUpRight size={16} />
+              </Link>
+            </motion.div>
+          </motion.div>,
+        ]}
       </AnimatePresence>
     </>
   );

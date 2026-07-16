@@ -1,4 +1,5 @@
 import { social } from "@/lib/data";
+import SiteNav from "./SiteNav";
 
 const abbrev: Record<string, string> = {
   Facebook: "FB",
@@ -23,8 +24,8 @@ function SocialBadge({ s }: { s: (typeof social)[number] }) {
 
 export default function Hero() {
   return (
-    <section className="h-[calc(100vh-1rem)] px-2 pb-2 pt-2">
-      <div className="relative mx-auto flex h-full max-w-7xl flex-col overflow-hidden rounded-[2rem] bg-[#14130f] text-white md:rounded-[2.5rem]">
+    <section className="h-[calc(100vh-0.5rem)] px-2 pb-2">
+      <div className="relative mx-auto flex h-full max-w-7xl flex-col overflow-hidden rounded-b-[2rem] bg-[#14130f] text-white md:rounded-b-[2.5rem]">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{
@@ -34,6 +35,10 @@ export default function Hero() {
         />
         <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-red/25 blur-[100px]" />
         <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-red/10 blur-[100px]" />
+
+        <div className="relative px-3 pt-3 md:px-4 md:pt-4">
+          <SiteNav embedded />
+        </div>
 
         <div className="relative flex flex-1 flex-col items-center justify-center gap-4 px-6 py-4 text-center sm:gap-6">
           <h1 className="font-display uppercase leading-[0.85] tracking-tight text-[clamp(2.5rem,10vw,8rem)]">
