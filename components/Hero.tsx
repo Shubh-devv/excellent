@@ -1,4 +1,5 @@
 import { social } from "@/lib/data";
+import SiteNav from "./SiteNav";
 
 const abbrev: Record<string, string> = {
   Facebook: "FB",
@@ -34,6 +35,10 @@ export default function Hero() {
         />
         <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-red/25 blur-[100px]" />
         <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-red/10 blur-[100px]" />
+
+        <div className="relative px-3 pt-4 md:px-4 md:pt-6">
+          <SiteNav embedded />
+        </div>
 
         <div className="relative flex flex-1 flex-col items-center justify-center gap-4 px-6 py-4 text-center sm:gap-6">
           <h1 className="font-display uppercase leading-[0.85] tracking-tight text-[clamp(2.5rem,10vw,8rem)]">
