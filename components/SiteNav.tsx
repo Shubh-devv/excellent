@@ -85,10 +85,10 @@ export default function SiteNav({ embedded = false }: { embedded?: boolean }) {
                 "group rounded-full border px-5 py-2.5 transition-colors",
                 active
                   ? "border-white bg-white/10 text-white"
-                  : "border-white/15 text-white/70 hover:border-white/40 hover:bg-white/10 hover:text-white"
+                  : "border-white/15 text-white/70 hover:border-white hover:bg-white/10 hover:text-white"
               )}
             >
-              <RollText text={item.label} accent={!active} />
+              <RollText text={item.label} />
             </Link>
           );
         })}
