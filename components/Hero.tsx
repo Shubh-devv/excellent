@@ -26,6 +26,16 @@ export default function Hero() {
   return (
     <section className="h-[calc(100vh-1.5rem)] px-3 pb-3 pt-3">
       <div className="relative mx-auto flex h-full max-w-7xl flex-col overflow-hidden rounded-[2rem] bg-[#14130f] text-white md:rounded-[2.5rem]">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-60"
+        >
+          <source src="/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div className="pointer-events-none absolute inset-0 bg-black/50" />
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{
