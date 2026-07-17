@@ -218,6 +218,12 @@ export const clientLogos: Record<string, string> = {
   "Tata Docomo": "Tata Docomo.png",
   "Mukta A2": "Mukta A2.jpg",
   Anand: "Anand.png",
+  "UOP Honeywell": "UOP Honeywell.png",
+  "Red Chief": "Red Chief.png",
+  "Rajiv Gandhi Cancer Institute": "Rajiv Gandhi Cancer Institute.png",
+  AIPMA: "AIPMA.png",
+  Soch: "Soch.png",
+  RSPL: "RSPL.png",
 };
 
 export const outdoorCategories = [
