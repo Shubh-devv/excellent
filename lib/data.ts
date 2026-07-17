@@ -224,6 +224,16 @@ export const clientLogos: Record<string, string> = {
   AIPMA: "AIPMA.png",
   Soch: "Soch.png",
   RSPL: "RSPL.png",
+  "Big Bazaar": "Big bazar.png",
+  Colston: "Colston.jpeg",
+  "Dalmia Cement": "Dalmia Cement.jpg",
+  Earth: "Earth.avif",
+  "Jio Studios": "Jio Studio.jpg",
+  Lifestyle: "Lifestyle.png",
+  Mycem: "Mycem.png",
+  Paras: "Paras.jpg",
+  Impact: "impact.jpg",
+  Yaarah: "yaarah.webp",
 };
 
 export const outdoorCategories = [
