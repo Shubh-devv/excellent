@@ -36,6 +36,12 @@ export default function Hero() {
           <source src="/hero-background.mp4" type="video/mp4" />
         </video>
         <div className="pointer-events-none absolute inset-0 bg-black/50" />
+        <img
+          src="/Home Intro Background.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 w-full opacity-80 mix-blend-screen"
+        />
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{
