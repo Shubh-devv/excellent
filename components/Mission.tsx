@@ -3,9 +3,9 @@ import Reveal from "./Reveal";
 
 export default function Mission() {
   return (
-    <section className="border-b border-ink-line">
+    <section className="bg-bone text-white">
       <div className="py-4">
-        <RhythmMarquee text="A 360° Solution Agency" />
+        <RhythmMarquee text="A 360° Solution Agency" light />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 py-20 grid gap-10 lg:grid-cols-2 items-start">
@@ -14,7 +14,7 @@ export default function Mission() {
             Twenty-three years of turning briefs into street-level results.
           </h2>
         </Reveal>
-        <Reveal delay={0.1} className="space-y-5 text-mute leading-relaxed text-lg">
+        <Reveal delay={0.1} className="space-y-5 text-white/60 leading-relaxed text-lg">
           <p>
             We partner with brands, corporates and government bodies across UP &amp;
             Uttarakhand to turn outdoor, print, event and digital briefs into work

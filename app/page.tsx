@@ -2,6 +2,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 import SectionHeading from "@/components/SectionHeading";
 import Hero from "@/components/Hero";
 import ClientFlipGrid from "@/components/ClientFlipGrid";
@@ -46,16 +47,18 @@ export default function Home() {
       <Mission />
 
       {/* STATS */}
-      <section className="border-b border-ink-line">
+      <section className="bg-bone text-white border-b border-white/10">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal
               key={s.label}
               delay={i * 0.08}
-              className="border-ink-line py-12 px-4 text-center [&:not(:last-child)]:border-r"
+              className="group border-white/10 py-12 px-4 text-center [&:not(:last-child)]:border-r transition-colors hover:bg-white/[0.03]"
             >
-              <div className="font-display text-4xl md:text-6xl text-red">{s.value}</div>
-              <div className="font-label text-xs tracking-[0.15em] uppercase text-mute mt-2">
+              <div className="font-display text-4xl md:text-6xl text-red transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_18px_rgba(229,23,31,0.55)]">
+                <CountUp value={s.value} />
+              </div>
+              <div className="font-label text-xs tracking-[0.15em] uppercase text-white/50 mt-2">
                 {s.label}
               </div>
             </Reveal>

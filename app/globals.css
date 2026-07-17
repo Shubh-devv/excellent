@@ -49,6 +49,11 @@ body {
   color: transparent;
 }
 
+.text-outline-light {
+  -webkit-text-stroke: 1.5px rgba(247, 245, 240, 0.25);
+  color: transparent;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

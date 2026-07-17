@@ -4,10 +4,12 @@ export default function RhythmMarquee({
   text,
   speed = "slow",
   outline = true,
+  light = false,
 }: {
   text: string;
   speed?: "slow" | "fast";
   outline?: boolean;
+  light?: boolean;
 }) {
   const row = Array.from({ length: 6 }, () => text);
 
@@ -24,7 +26,7 @@ export default function RhythmMarquee({
             key={i}
             className={clsx(
               "font-display uppercase text-6xl md:text-8xl leading-none flex items-center gap-8",
-              outline ? "text-outline" : "text-bone"
+              outline ? (light ? "text-outline-light" : "text-outline") : light ? "text-white" : "text-bone"
             )}
           >
             {t}
