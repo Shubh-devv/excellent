@@ -3,12 +3,12 @@ import Reveal from "./Reveal";
 
 export default function Mission() {
   return (
-    <section className="relative overflow-hidden bg-bone text-white">
+    <section className="bg-bone text-white">
       <div className="py-4">
         <RhythmMarquee text="A 360° Solution Agency" light />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-20 pb-48 grid gap-10 lg:grid-cols-2 items-start md:pb-64">
+      <div className="mx-auto max-w-7xl px-6 py-20 grid gap-10 lg:grid-cols-2 items-start">
         <Reveal>
           <h2 className="font-display text-4xl md:text-5xl uppercase leading-[1.02] tracking-tight">
             Twenty-three years of turning briefs into street-level results.
@@ -26,13 +26,6 @@ export default function Mission() {
           </p>
         </Reveal>
       </div>
-
-      <img
-        src="/Home Intro Background.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-40 w-full object-cover object-bottom opacity-70 mix-blend-screen md:h-56"
-      />
     </section>
   );
 }

@@ -47,8 +47,14 @@ export default function Home() {
       <Mission />
 
       {/* STATS */}
-      <section className="bg-bone text-white border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4">
+      <section className="relative overflow-hidden bg-bone text-white border-b border-white/10">
+        <img
+          src="/Home Intro Background.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0 w-full opacity-70 mix-blend-screen"
+        />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal
               key={s.label}
