@@ -202,6 +202,22 @@ export const clientLogos: Record<string, string> = {
   "Standard Chartered": "Standard Chartered.svg",
   Honda: "Honda.svg",
   Optum: "Optum.svg",
+  Aircel: "Aircel.svg",
+  "Blue Star": "Blue Star.svg",
+  Ciena: "Ciena.svg",
+  Denso: "Denso.svg",
+  Hughes: "Hughes.svg",
+  Kotak: "Kotak.svg",
+  "Lava Mobiles": "Lava Mobiles.svg",
+  "Reliance Digital": "Reliance Digital.svg",
+  Sony: "Sony.svg",
+  TVS: "TVS.svg",
+  "Times of India": "Times of India.svg",
+  UltraTech: "UltraTech.svg",
+  Landmark: "Landmark.png",
+  "Tata Docomo": "Tata Docomo.png",
+  "Mukta A2": "Mukta A2.jpg",
+  Anand: "Anand.png",
 };
 
 export const outdoorCategories = [
