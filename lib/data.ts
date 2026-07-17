@@ -171,6 +171,39 @@ export const clients = [
   "Rajiv Gandhi Cancer Institute", "Lifestyle",
 ];
 
+// Maps a subset of `clients` to a logo file in public/Company. Names without
+// an entry fall back to a text card in ClientFlipGrid.
+export const clientLogos: Record<string, string> = {
+  Vodafone: "Vodafone.jpg",
+  Airtel: "Airtel.png",
+  Reliance: "Reliance.png",
+  "Tata Indicom": "tata indicom.jpg",
+  Idea: "Idea.png",
+  Telenor: "telenor.png",
+  Woodland: "woodland.jpg",
+  fbb: "Fbb.jpg",
+  Biba: "BIBA.png",
+  "Hero Honda": "honda hero.png",
+  "Zee TV": "Zee Tv.jpg",
+  "Big TV": "big tv.png",
+  "Knorr Bremse": "knorr bremse.jpg",
+  ITC: "ITC.svg",
+  Siemens: "Siemens.svg",
+  "JK Tyre": "JK Tyre.png",
+  HP: "HP.svg",
+  "Canara HSBC": "Canara HSBC.jpg",
+  LG: "LG.svg",
+  "NDTV India": "NDTV India.svg",
+  Suzuki: "Suzuki.svg",
+  Zomato: "Zomato.svg",
+  Chevrolet: "Chevrolet.png",
+  Travelport: "Travelport.svg",
+  HCL: "HCL.svg",
+  "Standard Chartered": "Standard Chartered.svg",
+  Honda: "Honda.svg",
+  Optum: "Optum.svg",
+};
+
 export const outdoorCategories = [
   {
     title: "Brand Builders",

@@ -2,9 +2,30 @@
 
 import { useEffect, useState } from "react";
 import { useAnimate } from "framer-motion";
-import { clients } from "@/lib/data";
+import { clients, clientLogos } from "@/lib/data";
 
 const SLOTS = 8;
+
+function ClientMark({ name }: { name: string }) {
+  const logo = clientLogos[name];
+
+  if (logo) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={`/Company/${encodeURIComponent(logo)}`}
+        alt={name}
+        className="max-h-12 max-w-[80%] object-contain md:max-h-14"
+      />
+    );
+  }
+
+  return (
+    <span className="font-display text-base uppercase leading-tight text-bone md:text-lg">
+      {name}
+    </span>
+  );
+}
 
 function FlipCard({ startIndex, delay }: { startIndex: number; delay: number }) {
   const [index, setIndex] = useState(startIndex);
@@ -34,9 +55,7 @@ function FlipCard({ startIndex, delay }: { startIndex: number; delay: number }) 
         style={{ transformStyle: "preserve-3d" }}
         className="flex h-full w-full items-center justify-center border border-ink-line bg-ink-soft px-3 text-center"
       >
-        <span className="font-display text-base uppercase leading-tight text-bone md:text-lg">
-          {clients[index % clients.length]}
-        </span>
+        <ClientMark name={clients[index % clients.length]} />
       </div>
     </div>
   );
