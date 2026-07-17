@@ -234,6 +234,16 @@ export const clientLogos: Record<string, string> = {
   Paras: "Paras.jpg",
   Impact: "impact.jpg",
   Yaarah: "yaarah.webp",
+  "Cotto Tiles": "Cotto tiles.png",
+  "Ghadi Detergent": "Ghadi.png",
+  "Satya Group": "Satya Group.jpg",
+  Cendant: "cendant.svg",
+  "Q-railing": "Q-ralling.jpg",
+  Creora: "creora.png",
+  Intenze: "intenze.png",
+  Jockey: "Jockey.avif",
+  "Nextra Developers": "nextra developers.png",
+  Polixel: "polixel.png",
 };
 
 export const outdoorCategories = [
