@@ -8,7 +8,7 @@ export default function Mission() {
         <RhythmMarquee text="A 360° Solution Agency" light />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-20 grid gap-10 lg:grid-cols-2 items-start">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-20 pb-48 grid gap-10 lg:grid-cols-2 items-start md:pb-64">
         <Reveal>
           <h2 className="font-display text-4xl md:text-5xl uppercase leading-[1.02] tracking-tight">
             Twenty-three years of turning briefs into street-level results.
@@ -31,7 +31,7 @@ export default function Mission() {
         src="/Home Intro Background.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 w-full opacity-90 mix-blend-screen"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-40 w-full object-cover object-bottom opacity-70 mix-blend-screen md:h-56"
       />
     </section>
   );
