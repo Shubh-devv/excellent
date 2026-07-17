@@ -242,6 +242,7 @@ export const clientLogos: Record<string, string> = {
   Creora: "creora.png",
   Intenze: "intenze.png",
   Jockey: "Jockey.avif",
+  Bernama: "bernama.jpg",
   "Nextra Developers": "nextra developers.png",
   Polixel: "polixel.png",
 };
