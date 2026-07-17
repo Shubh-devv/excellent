@@ -51,8 +51,13 @@ export default function Hero() {
         </div>
 
         <div className="relative flex flex-1 flex-col items-center justify-center gap-4 px-6 py-4 text-center sm:gap-6">
-          <h1 className="font-display uppercase leading-[0.85] tracking-tight text-[clamp(2.5rem,10vw,8rem)]">
-            Excellent
+          <h1 className="text-center">
+            <span className="block font-display uppercase leading-[0.85] tracking-tight text-[clamp(2.5rem,10vw,8rem)]">
+              Excellent
+            </span>
+            <span className="mt-1 block font-display uppercase leading-tight tracking-tight text-[clamp(1.1rem,3.5vw,2.5rem)] text-white/85 sm:mt-2">
+              Entertainment Networks
+            </span>
           </h1>
           <p className="text-base text-white/60 sm:text-lg md:text-xl">
             A 360° Solution Agency, Since 2002
