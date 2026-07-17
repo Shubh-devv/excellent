@@ -43,34 +43,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MISSION / RHYTHM SECTION */}
-      <Mission />
+      {/* MISSION / RHYTHM SECTION + STATS — share one continuous background image */}
+      <div className="relative overflow-hidden bg-bone border-b border-white/10">
+        <Mission />
 
-      {/* STATS */}
-      <section className="relative overflow-hidden bg-bone text-white border-b border-white/10">
+        <section className="relative text-white">
+          <div className="relative z-10 mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4">
+            {stats.map((s, i) => (
+              <Reveal
+                key={s.label}
+                delay={i * 0.08}
+                className="group border-white/10 py-12 px-4 text-center [&:not(:last-child)]:border-r transition-colors hover:bg-white/[0.03]"
+              >
+                <div className="font-display text-4xl md:text-6xl text-red transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_18px_rgba(229,23,31,0.55)]">
+                  <CountUp value={s.value} />
+                </div>
+                <div className="font-label text-xs tracking-[0.15em] uppercase text-white/50 mt-2">
+                  {s.label}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
         <img
           src="/Home Intro Background.png"
           alt=""
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 bottom-0 z-0 w-full opacity-70 mix-blend-screen"
         />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 grid grid-cols-2 md:grid-cols-4">
-          {stats.map((s, i) => (
-            <Reveal
-              key={s.label}
-              delay={i * 0.08}
-              className="group border-white/10 py-12 px-4 text-center [&:not(:last-child)]:border-r transition-colors hover:bg-white/[0.03]"
-            >
-              <div className="font-display text-4xl md:text-6xl text-red transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_18px_rgba(229,23,31,0.55)]">
-                <CountUp value={s.value} />
-              </div>
-              <div className="font-label text-xs tracking-[0.15em] uppercase text-white/50 mt-2">
-                {s.label}
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      </div>
 
       {/* PILLARS */}
       <section className="py-24 border-b border-ink-line">

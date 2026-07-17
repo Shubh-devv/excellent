@@ -8,7 +8,7 @@ export default function Mission() {
         <RhythmMarquee text="A 360° Solution Agency" light />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-20 grid gap-10 lg:grid-cols-2 items-start">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 grid gap-10 lg:grid-cols-2 items-start">
         <Reveal>
           <h2 className="font-display text-4xl md:text-5xl uppercase leading-[1.02] tracking-tight">
             Twenty-three years of turning briefs into street-level results.
